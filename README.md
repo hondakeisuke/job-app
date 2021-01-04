@@ -6,20 +6,30 @@
 | ------------------- | -------- | --------------------------- |
 |  name               |  string  |  null: false                | 
 |  company_name       |  string  |                             | 
+|  age                |  integer |  nill: false                |
 |  email              |  string  |  null: false, unique: true  |
 |  encrypted_password |  string  |  null: false                |
-|  post_code          |  string  |  null:false                 |
-|  prefecture_id      |  integer |  null:false                 |
-|  city               |  string  |  null:false                 |
-|  house_number       |  string  |  null:false                 |
-|  building_name      |  string  |  null:false                 |
-|  tell_number        |  string  |  null:false                 |
+|  tell_number        |  string  |  null: false                |
 |  birthday           |  date    |  null: false                |
 
 ### Association
 
 - has_many :jobs
 - has_many :room_users
+- has_one :address
+
+## address テーブル
+|  Column             |  Type   |  Option                      |
+| ------------------- | -------- | --------------------------- |
+|  post_code          |  string  |  null: false                |
+|  prefecture_id      |  integer |  null: false                |
+|  city               |  string  |  null: false                |
+|  house_number       |  string  |  null: false                |
+|  building_name      |  string  |  null: false                |
+
+belongs_to :user
+
+
 
 ## job テーブル
 |  Column            |  Type        |  Option                         |
