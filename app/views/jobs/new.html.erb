@@ -1,0 +1,37 @@
+<div class="contents row">
+  <div class="container">
+    <h3>投稿する</h3>
+    <%= form_with(model: @job, local: true) do |f| %>
+      <p>仕事内容</p>
+      <h5>必須</h5>
+      <%= f.text_field :order_title, placeholder: "〇〇の電気工事" %>
+      <p>仕事の詳細</p>
+      <h5>必須</h5>
+      <%= f.text_area :order_detail, placeholder: "〇〇の電気工事、○月○日に来れる方", rows: "10" %>
+      <p>期間</p>
+      <h5>必須</h5>
+      <%= f.text_field :period, placeholder: "○月○日〜○月○日予定 詳細はチャットで連絡" %>
+      <p>契約金額</p>
+      <h5>必須</h5>
+      <%= f.text_field :order_price, placeholder: "契約金額又は日当〇〇千円" %>
+      <p>業種を指定</p>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"field"}) %>
+
+      <p>現場の郵便番号</p>
+      <h5>必須</h5>
+      <%= f.text_field :job_post_code, placeholder: "111-111" %>
+      <p>都道府県</p>
+      <h5>必須</h5>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"field"}) %>
+      <p>現場の市町村</p>
+      <h5>必須</h5>
+      <%= f.text_field :job_city, placeholder: "〇〇市" %>
+      <p>現場の住所</p>
+      <%= f.text_field :job_house_number, placeholder: "〇〇町1-1" %>
+      <p>現場の建物名</p>
+      <%= f.text_field :building_name, placeholder: "〇〇マンション101" %>
+
+      <%= f.submit "SEND" %>
+    <% end %>
+  </div>
+</div>

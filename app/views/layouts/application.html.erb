@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pictweet</title>
+    <title>JobApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,7 +23,7 @@
                 </li>
               </ul>
             </span>
-            <%= link_to "投稿する", class: "post" %>
+            <%= link_to "投稿する", new_job_path, method: :get ,class: "post" %>
           </div>
         <% else %>
           <div class="grid-6">
@@ -36,7 +36,7 @@
     <%= yield %>
     <footer>
       <p>
-        Copyright PicTweet 2019.
+        
       </p>
     </footer>
   </body>

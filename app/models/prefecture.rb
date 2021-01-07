@@ -20,4 +20,5 @@ class Prefecture <  ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :Address
+  has_many :job
 end
