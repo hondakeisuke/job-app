@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_065409) do
+ActiveRecord::Schema.define(version: 2021_01_05_123030) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
@@ -18,10 +18,35 @@ ActiveRecord::Schema.define(version: 2021_01_04_065409) do
     t.string "city", null: false
     t.string "house_number"
     t.string "building_name"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "jobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "order_title", null: false
+    t.text "order_detail", null: false
+    t.string "period", null: false
+    t.string "order_price", null: false
+    t.integer "category_id", null: false
+    t.string "job_post_code", null: false
+    t.integer "prefecture_id", null: false
+    t.string "job_city", null: false
+    t.string "job_house_number"
+    t.string "building_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_jobs_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "rooms_name", null: false
+    t.bigint "job_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_id"], name: "index_rooms_on_job_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,4 +67,6 @@ ActiveRecord::Schema.define(version: 2021_01_04_065409) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "jobs", "users"
+  add_foreign_key "rooms", "jobs"
 end

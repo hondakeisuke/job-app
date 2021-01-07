@@ -1,0 +1,52 @@
+<div class="contents row">
+  <% if user_signed_in? %>
+    <% if current_user.id == @job.user_id %>
+      <ul class="btn-list">
+        <li>
+          <%= link_to '編集', edit_job_path(@job.id), method: :get ,class: 'btns' %>
+        </li>
+        <li>
+          <%= link_to '削除', job_path(@job.id), method: :delete,class: 'btns' %>
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+  <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">依頼者</th>
+          <td class="detail-value"><%= @job.user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">業種</th>
+          <td class="detail-value"><%= @job.category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">依頼内容</th>
+          <td class="detail-value"><%= @job.order_title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">商品の詳細内容</th>
+          <td class="detail-value"><%= @job.order_detail %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">工事予定期間</th>
+          <td class="detail-value"><%= @job.period %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">契約金額または日当</th>
+          <td class="detail-value"><%= @job.order_price %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">現場の郵便番号</th>
+          <td class="detail-value"><%= @job.job_post_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">現場住所</th>
+          <td class="detail-value"><%= @job.prefecture.name %><%= @job.job_city %><%= @job.job_house_number %><%= @job.building_name %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <%# チャット機能をつける %>
+</div>

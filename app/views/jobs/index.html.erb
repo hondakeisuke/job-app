@@ -1,0 +1,33 @@
+<div class="contents row">
+  <% @job.each do |job| %>
+    <body>
+      <div class="side-bar">
+      </div>
+      <div class="main">
+        <div class="main-header"></div>
+        <div class="main-content">
+          <div class="messages">
+            <div class="message-title">
+              <div class="message-body"><%=link_to job.order_title , job_path(job.id) %></div>
+              <div class="more">
+                <span><%= image_tag 'arrow_top.png' %></span>
+              </div>
+            </div>
+            <div class="message">
+              <div class="message-name">①依頼者</div>
+              <div class="message-body"><%= job.user.name %></div>
+            </div>
+            <div class="message">
+              <div class="message-name">②工事期間</div>
+              <div class="message-body"><%= job.period %></div>
+            </div>
+            <div class="message">
+              <div class="message-name">工事現場</div>
+              <div class="message-body"><%= job.job_city %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  <% end %>
+</div>
