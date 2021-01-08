@@ -32,6 +32,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @room = Room.new
   end
 
   def destroy

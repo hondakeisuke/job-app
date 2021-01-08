@@ -49,4 +49,21 @@
     </table>
 
     <%# チャット機能をつける %>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">
+            <% if user_signed_in?  %>
+              <% if current_user.id != @job.user.id %>
+                <p>契約内容を詳しく聞ききたい方や質問がある方はこちらへ</p>
+                <%= link_to 'チャット', new_room_path %>
+              <% end %>
+            <% else %>
+              <br>
+              <%= link_to '契約内容などを詳しく聞きたい方はログインすることでチャットをご利用になれます。' ,new_user_session_path %>
+            <% end %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
 </div>
