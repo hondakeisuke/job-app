@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "jobs#index"
   resources :jobs
+  resources :rooms, only: [:new, :create, :destroy, :index] do
+    resources :messages, only: [:index, :create]
+  end
 end

@@ -17,6 +17,8 @@
 - has_many :jobs
 - has_many :room_users
 - has_one :address
+- has_many :messages
+- has_many :rooms, through: :room_users
 
 ## address テーブル
 |  Column             |  Type   |  Option                      |
@@ -27,7 +29,7 @@
 |  house_number       |  string  |  null: false                |
 |  building_name      |  string  |                             |
 
-belongs_to :user
+- belongs_to :user
 
 
 
@@ -75,6 +77,7 @@ belongs_to :user
 - has_many :room_users
 - belongs_to :job
 - has_many :messages
+- has_many :users, through: :room_users
 
 ## messages テーブル
 
@@ -87,3 +90,4 @@ belongs_to :user
 ### Association 
 
 - belongs_to :room
+- belongs_to :user

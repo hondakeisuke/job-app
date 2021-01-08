@@ -8,6 +8,5 @@ class Job < ApplicationRecord
   end
 
   belongs_to :user
-  has_many :rooms
   
 end

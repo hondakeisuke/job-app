@@ -13,6 +13,7 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string :building_name   
       t.references :user,               null:false, foreign_key: true
       
+      
 
       t.timestamps
     end

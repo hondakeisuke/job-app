@@ -1,0 +1,9 @@
+<div class='wrapper'>
+  <% if user_signed_in? %>
+    <%  if current_user.id == @room_user.user_id %>
+      <div class='side-bar'>
+        <%= render "messages/side_bar" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
