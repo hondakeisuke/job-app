@@ -42,7 +42,7 @@
 |  order_price       |  string      |  null: false                    |
 |  category_id       |  integer     |  null: false                    |
 |  job_post_code     |  string      |  null:false                     |
-|  job_prefecture_id |  integer     |  null:false                     |
+|  prefecture_id     |  integer     |  null:false                     |
 |  job_city          |  string      |  null:false                     |
 |  job_house_number  |  string      |                                 |
 |  building_name     |  string      |                                 |
@@ -52,7 +52,6 @@
 ### Association
 
 - belongs_to :user
-- has_many :rooms
 
 # room_user テーブル
 |  Column            |  Type        |  Option                         |

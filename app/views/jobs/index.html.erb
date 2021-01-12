@@ -7,20 +7,22 @@
           <div class="messages">
             <div class="message-title">
               <div class="message-body"><%=link_to job.order_title , job_path(job.id) %></div>
-              <div class="more">
-                <span><%= image_tag 'arrow_top.png' %></span>
-              </div>
+              <div class="more"></div>
             </div>
             <div class="message">
               <div class="message-name">①依頼者</div>
-              <div class="message-body"><%= job.user.name %></div>
+              <div class="message-body">
+              <% if job.user.company_name != nil %>
+                <%= job.user.company_name %>
+              <% end  %>
+              <%= job.user.name %></div>
             </div>
             <div class="message">
               <div class="message-name">②工事期間</div>
               <div class="message-body"><%= job.period %></div>
             </div>
             <div class="message">
-              <div class="message-name">工事現場</div>
+              <div class="message-name">③現場</div>
               <div class="message-body"><%= job.job_city %></div>
             </div>
           </div>
@@ -28,4 +30,5 @@
       </div>
     </body>
   <% end %>
+  <%= paginate @job %>
 </div>
