@@ -7,6 +7,15 @@ class Job < ApplicationRecord
     validates :category_id
   end
 
+  with_options presence:true do
+    validates :order_title
+    validates :order_detail
+    validates :period
+    validates :order_price
+    validates :job_post_code
+    validates :job_city
+  end
+
   belongs_to :user
   
 end
