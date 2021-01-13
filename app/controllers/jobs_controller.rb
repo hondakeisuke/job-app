@@ -1,10 +1,12 @@
 class JobsController < ApplicationController
+  before_action :set_job, only: [:edit, :update, :show, :destroy, :current]
   before_action :current, only: [:edit, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :destroy]
-  before_action :set_job, only: [:edit, :update, :show, :destroy]
+  
 
   def index
-    @job = Job.all.order("created_at DESC").page(params[:page]).per(3)
+    @job = Job.all.order("created_at DESC")
+    @job = Kaminari.paginate_array(@job).page(params[:page]).per(4)
   end
 
   def new
@@ -24,7 +26,7 @@ class JobsController < ApplicationController
   end
 
   def update
-    if job.update(job_params) 
+    if @job.update(job_params) 
       redirect_to root_path
     else
       render 'edit'
@@ -36,7 +38,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    if job.destroy
+    if @job.destroy
       redirect_to root_path
     else
       render 'show'

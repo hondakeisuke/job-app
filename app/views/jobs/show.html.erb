@@ -49,21 +49,28 @@
     </table>
 
     <%# チャット機能をつける %>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">
-            <% if user_signed_in?  %>
-              <% if current_user.id != @job.user.id %>
+    <% if user_signed_in?  %>
+      <% if current_user.id != @job.user.id %>
+        <table class="detail-table">
+          <tbody>   
+            <tr>
+              <th class="detail-item">      
                 <p>契約内容を詳しく聞ききたい方や質問がある方はこちらへ</p>
                 <%= link_to 'チャット', new_room_path %>
-              <% end %>
-            <% else %>
-              <br>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    <% else %>
+      <table class="detail-table">
+        <tbody>  
+          <tr>
+            <th class="detail-item">
               <%= link_to '契約内容などを詳しく聞きたい方はログインすることでチャットをご利用になれます。' ,new_user_session_path %>
-            <% end %>
-          </th>
-        </tr>
-      </tbody>
-    </table>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
 </div>
