@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update, :show, :destroy]
 
   def index
-    @job = Job.all.order("created_at DESC")
+    @job = Job.all.order("created_at DESC").page(params[:page]).per(3)
   end
 
   def new

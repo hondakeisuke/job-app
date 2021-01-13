@@ -47,6 +47,7 @@ RSpec.describe Job, type: :model do
         @job.valid?
         expect(@job.errors.full_messages).to include("Categoryは0以外の値にしてください")
       end
+
       it 'job_post_codeが空だと登録できない' do
         @job.job_post_code = ''
         @job.valid?

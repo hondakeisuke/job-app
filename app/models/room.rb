@@ -4,4 +4,5 @@ class Room < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :rooms_name, presence:true
+
 end
