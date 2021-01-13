@@ -15,7 +15,7 @@ class Job < ApplicationRecord
     validates :job_post_code
     validates :job_city
   end
-
-  belongs_to :user
+  
+  belongs_to :user  
   
 end
