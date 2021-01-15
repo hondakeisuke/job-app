@@ -853,6 +853,10 @@ div.contents.row h2 strong {
   padding-right: 5px;
   font-size: 1.2em;
 }
+.new_user{
+  width: 70vw;
+  margin-left: 100px;
+}
 
 div.contents.row .new_user {
   font-family: "游ゴシック", "YuGothic";
@@ -1058,11 +1062,12 @@ footer p {
 .input-birth-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: left;
 }
 
 .input-birth-wrap select {
-  width: 75px;
-  margin-top: 5px;
+  width: 20%;
+  margin: 5px 0;
   height: 45px;
   padding-left: 10px;
   border-radius: 4px;
@@ -1073,7 +1078,7 @@ footer p {
 }
 
 .input-birth-wrap p {
-  line-height: 5px;
+  line-height: 0px;
   padding: 0 5px;
 }
 
@@ -1090,7 +1095,7 @@ footer p {
 
 body{
   height: 800px;
-  display: flex;
+
  }
  
  
@@ -1211,13 +1216,14 @@ body{
 .chat-header {
   height: 100px;
   padding: 0 40px;
+  font-size: 12px;
   display: flex;
   justify-content: space-between;
 }
 
 .header-title{
   color: #333333;
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 36px;
 }
 .header-button{
@@ -1300,4 +1306,27 @@ body{
   height: 90px;
   padding: 20px 40px;
   display: flex;
+}
+.mandatory{
+  border: 1px solid black;
+  background-color: #f0f0f0;
+}
+.mandatory-i{
+  border: 1px solid black;
+  background-color: #f0f0f0;
+  padding: 2px;
+  margin: 2px;
+  height: 35px;
+  width: 45px;
+}
+.new_address{
+  width: 70vw;
+  margin-left: 100px;
+}
+.chat-room-form__field{
+  width: 70vw;
+  margin-left: 100px;
+}
+.side-bar-header-a{
+  color: white;
 }

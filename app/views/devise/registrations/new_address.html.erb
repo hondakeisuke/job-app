@@ -4,30 +4,32 @@
   <%= render "devise/shared/error_messages", resource: @address %>
 
   <div class="field">
-    <%= f.label :post_code %><br />
+    <%= f.label :post_code,"郵便番号" %>
+    <span class="mandatory">必須</span><br />
     <%= f.text_field :post_code %>
   </div>
-
+  
+  <div>都道府県</div><span class="mandatory">必須</span><br />
   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"field", id:"prefecture"}) %>
 
   <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label :city ,"市町村"%>
+    <span class="mandatory">必須</span><br />
     <%= f.text_field :city %>
   </div>
 
   <div class="field">
-    <%= f.label :house_number %><br />
+    <%= f.label :house_number, "住居番号(〇〇丁目)" %>
+    <span class="mandatory">必須</span><br />
     <%= f.text_field :house_number %>
   </div>
 
   <div class="field">
-    <%= f.label :building_name %><br />
+    <%= f.label :building_name,"建物名" %><br />
     <%= f.text_field :building_name %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
